@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 
 import { cryptoActions } from '../_actions';
-
 
 import Grid from 'material-ui/Grid';
 import Paper from 'material-ui/Paper';
@@ -114,7 +114,7 @@ class HomePage extends React.Component {
 						<Grid item xs={12}>
 							<Grid item xs={12}>
 								<Paper className={classes.root}>
-									Total mined: $ {totalEarned}
+									Total mined: $ {totalEarned.toFixed(8).replace(/\.?0+$/, '')}
 								</Paper>
 								<Paper className={classes.root}>
 									<span>Last updated: {this.state.lastUpdate.toLocaleString()}</span><br/>
@@ -139,7 +139,7 @@ function mapStateToProps(state) {
 	};
 }
 
-const connectedHomePage = connect(mapStateToProps)(HomePage);
+const connectedHomePage = withRouter(connect(mapStateToProps)(HomePage));
 const finalPage = withRoot(withStyles(styles)(connectedHomePage));
 
 export { finalPage as HomePage };

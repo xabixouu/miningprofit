@@ -25,9 +25,9 @@ function CoinTable(props) {
 				<TableHead>
 					<TableRow>
 						<TableCell>COIN</TableCell>
+						<TableCell numeric>$$$</TableCell>
 						<TableCell numeric>NB Coins</TableCell>
 						<TableCell numeric>$ / Coin</TableCell>
-						<TableCell numeric>$$$</TableCell>
 					</TableRow>
 				</TableHead>
 				<TableBody>
@@ -39,13 +39,13 @@ function CoinTable(props) {
 									{item.symbol} - {item.coin}
 								</TableCell>
 								<TableCell numeric>
+									$ {item.total_price.toFixed(8).replace(/\.?0+$/, '')}
+								</TableCell>
+								<TableCell numeric>
 									{item.total_coins}
 								</TableCell>
 								<TableCell numeric>
 									$ {item.unit_price}
-								</TableCell>
-								<TableCell numeric>
-									$ {item.total_price}
 								</TableCell>
 							</TableRow>
 						);

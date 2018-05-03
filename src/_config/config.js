@@ -1,5 +1,4 @@
 export const config = {
-
 	api: {
 		miningpoolhub: "https://cors-anywhere.herokuapp.com/https://miningpoolhub.com/index.php?page=api",
 		price: "https://min-api.cryptocompare.com/data/pricemulti?tsyms=USD&fsyms=",
@@ -42,5 +41,6 @@ export const config = {
 		"zclassic": "ZCL",
 		"zcoin": "XZC",
 		"zencash": "ZEN"
-	}
+	},
+	"ghpages-baseurl": "/miningprofit"
 }

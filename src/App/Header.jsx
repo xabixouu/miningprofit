@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { userActions } from '../_actions';
 import { history } from '../_helpers';
+import { withRouter } from 'react-router-dom'
 
 import { withStyles } from 'material-ui/styles';
 import Grid from 'material-ui/Grid';
@@ -94,8 +95,7 @@ function mapStateToProps(state) {
 	};
 }
 
-const connectedHeader = connect(mapStateToProps)(Header);
-// export { connectedHeader as Header };
+const connectedHeader = withRouter(connect(mapStateToProps)(Header));
 const finalPage = withStyles(styles)(connectedHeader);
 
 export { finalPage as Header };

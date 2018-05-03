@@ -1,3 +1,6 @@
-import { createBrowserHistory } from 'history';
+import createHistory from 'history/createBrowserHistory'
+import { config } from '../_config'
 
-export const history = createBrowserHistory();
+export const history = createHistory({
+	basename: config['ghpages-baseurl']
+});

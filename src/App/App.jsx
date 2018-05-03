@@ -1,5 +1,6 @@
 import React from 'react';
-import { Redirect, Switch, Router, Route } from 'react-router-dom';
+import { Redirect, Switch, Route } from 'react-router-dom';
+import { ConnectedRouter } from 'react-router-redux'
 import { connect } from 'react-redux';
 
 import { history } from '../_helpers';
@@ -18,6 +19,7 @@ class App extends React.Component {
 
 		const { dispatch } = this.props;
 		history.listen((location, action) => {
+			console.log(location, action)
 			// clear alert on location change
 			dispatch(alertActions.clear());
 		});
@@ -29,17 +31,17 @@ class App extends React.Component {
 			<div>
 				<CssBaseline />
 				<div className="container">
-					<Router history={history}>
+
+					<ConnectedRouter history={history}>
 						<div>
 							<Header />
 							<Switch>
-								<PrivateRoute exact path="/" component={HomePage} />
 								<Route exact path="/login" component={LoginPage} />
-								{/*<Route component={LoginPage} />*/}
+								<PrivateRoute exact path="/" component={HomePage} />
 								<Redirect to={{ pathname: '/login', state: { from: location } }} />
 							</Switch>
 						</div>
-					</Router>
+					</ConnectedRouter>
 				</div>
 			</div>
 		);

@@ -19,6 +19,14 @@ const styles = theme => ({
 function CoinTable(props) {
 	const { classes, crypto } = props;
 
+	crypto.coins.sort((l, r) => {
+		return (
+			l.total_price === r.total_price
+			? 0
+			: (l.total_price < r.total_price ? 1 : -1)
+		)
+	})
+
 	return (
 		<Paper className={classes.root}>
 			<Table className={classes.table}>

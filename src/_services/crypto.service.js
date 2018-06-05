@@ -36,7 +36,7 @@ function getCoins() {
 
 				data.map((item) => {
 					item.symbol			= config.coins[item.coin]
-					item.total_coins	= item.confirmed + item.unconfirmed
+					item.total_coins	= item.confirmed + item.unconfirmed + item.ae_confirmed + item.ae_unconfirmed + item.exchange
 					return item
 				}).join();
 
